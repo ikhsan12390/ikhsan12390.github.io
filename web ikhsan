@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Beranda Sekolah</title>
+</head>
+<body>
+<table border="1" width="800" align="center" bgcolor="#00FF00">
+<tr>
+   <td colspan="2" aligrn="center" bgcolor="#006400">
+<font color="white">
+    <h1>Website Ikhsan</h1>
+    <p>SMK HEBAT SMK BISA</p>
+     </font>
+   </td>
+     </tr>
+<tr>
+ <td colspan="2" align="center" bgcolor="fffff">
+    <a href="#">Beranda</a>
+<a href="#">Profil</a>
+<a href="#">Kegiatan</a>
+<a href="#">Kontak</a>
+ </td>
+  </tr>
+<tr>
+ <td colspan="2" width="70%" valign="top" bgcolor="fffff">
+
+    <h2>JUDUL BERITA</h2>
+<p>
+BERITA TERKINI!!Indonesia mengalami karhutla karena musim kemarau berkepanjangan
+</p>
+<a href="#">Baca Selengkapnya</a>
+ </td>
+  </tr>
+<td width="30%" valign="top" bgcolor="fffff">
+    <h3>INFORMSI</h3>
+<ul>
+ <li><a href="#">kegiatan Sekolah</a></li>
+ <li><a href="#">Prestatsi Siswa</a></li>
+ <li><a href="#">Class Meeting</a></li>
+</ul>
+
+</td>
+
+<td width="30%" bgcolor="#fffff">
+                <p>Temukan Kami!</p>
+                <ul>
+                    <li><a href="https://www.instagram.com/smkn1tng/"target="_blank">Instagram Nesta</a></li>
+                    <li><a href="https://www.instagram.com/menfess.nesta/" target="_blank">Menfess Nesta</a></li>
+                    <li><a href="https://www.smkn1-tng.sch.id/" target="_blank">Website Nesta</a></li>
+                </ul>
+            </td>
+        
+<tr>
+<td colspan="2" bgcolor="fffff">
+<h2>TEKNOLOGI TERBARU!!</h2>
+<P>
+TEKNOLOGI: AI, cybersecurity, cara kerja internet, dan pemrograman
+</P>
+<a href="#">Baca Selengkapnya</a>
+</td>
+ </tr>
+
+<tr>
+  <td colspan="2" align="Center" bgcolor="#006400">
+ <p> &copy;2026 Buletin Sekolah</p>
+  <p>Terima Kasih Telah Berkunjung</p>
+   </td>
+   </tr>
+</table>
+  </body>
+   </html>
