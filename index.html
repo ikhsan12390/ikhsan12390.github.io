@@ -1,7 +1,462 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Website Ikhsan</title>
+
+    <style>
+        /* =========================
+           COLOR PALETTE
+        ========================= */
+        :root {
+            --cherry: #A8324A;
+            --cherry-dark: #792337;
+            --cherry-soft: #F8E6E9;
+
+            --butter: #F5D982;
+            --butter-light: #FFF5D6;
+
+            --matcha: #879B65;
+            --matcha-dark: #586B42;
+            --matcha-light: #E8EEDC;
+
+            --cream: #FAF7F0;
+            --white: #FFFFFF;
+            --text: #37352F;
+            --muted: #817C72;
+            --border: #E8E0D3;
+
+            --shadow: 0 12px 35px rgba(87, 58, 48, 0.08);
+        }
+
+        /* =========================
+           RESET & GLOBAL STYLE
+        ========================= */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 45px 20px;
+            background: var(--cream);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+
+            animation: pageEnter 0.8s ease both;
+        }
+
+        /* Dekorasi background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -120px;
+            right: -100px;
+            width: 320px;
+            height: 320px;
+            background: var(--butter);
+            opacity: 0.20;
+            border-radius: 50%;
+            filter: blur(3px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: -130px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--matcha);
+            opacity: 0.13;
+            border-radius: 50%;
+            filter: blur(5px);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* =========================
+           MAIN WEBSITE TABLE
+        ========================= */
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: none;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+
+            animation: cardEnter 0.9s ease both;
+        }
+
+        td {
+            padding: 25px;
+            border: none;
+            vertical-align: top;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+        tr:first-child td {
+            padding: 38px 25px;
+            background: var(--cherry);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        tr:first-child td::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -45px;
+            top: -90px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 25px rgba(255, 255, 255, 0.04),
+                0 0 0 50px rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(30px, 5vw, 43px);
+            font-weight: 750;
+            letter-spacing: -1.5px;
+            line-height: 1.3;
+        }
+
+        tr:first-child i {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--butter);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            font-style: normal;
+        }
+
+        /* =========================
+           NAVIGATION MENU
+        ========================= */
+        tr:nth-child(2) td {
+            padding: 17px 15px;
+            background: var(--butter-light);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        a {
+            color: var(--cherry);
+            text-decoration: none;
+            font-weight: 600;
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        /* Menu link */
+        tr:nth-child(2) a {
+            display: inline-block;
+            padding: 7px 16px;
+            margin: 3px 4px;
+            border-radius: 9px;
+            font-size: 14px;
+        }
+
+        tr:nth-child(2) a:hover {
+            color: var(--white);
+            background: var(--cherry);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(168, 50, 74, 0.18);
+        }
+
+        tr:nth-child(2) a:active {
+            transform: scale(0.95);
+        }
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+        tr:nth-child(3) td:first-child {
+            width: 70%;
+            padding: 35px;
+        }
+
+        h2 {
+            position: relative;
+            margin: 0 0 12px;
+            padding-left: 15px;
+            color: var(--cherry-dark);
+            font-size: 23px;
+            line-height: 1.5;
+            letter-spacing: -0.5px;
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            left: 0;
+            width: 4px;
+            background: var(--matcha);
+            border-radius: 5px;
+        }
+
+        p {
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 2;
+            color: #555149;
+        }
+
+        /* Tanggal artikel */
+        tr:nth-child(3) td:first-child > p[align="right"] {
+            margin: 0 0 18px;
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* Tombol selengkapnya */
+        tr:nth-child(3) td:first-child > a {
+            display: inline-block;
+            margin: 5px 0 20px;
+            padding: 9px 19px;
+            color: var(--white);
+            background: var(--cherry);
+            border: 1px solid var(--cherry);
+            border-radius: 8px;
+            font-size: 13px;
+            box-shadow: 0 4px 10px rgba(168, 50, 74, 0.10);
+        }
+
+        tr:nth-child(3) td:first-child > a:hover {
+            background: var(--cherry-dark);
+            border-color: var(--cherry-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(168, 50, 74, 0.20);
+        }
+
+        tr:nth-child(3) td:first-child > a:active {
+            transform: translateY(0) scale(0.97);
+        }
+
+        hr {
+            height: 1px;
+            margin: 28px 0;
+            border: none;
+            background: linear-gradient(
+                to right,
+                var(--butter),
+                var(--border),
+                transparent
+            );
+        }
+
+        /* =========================
+           SIDEBAR / EXTERNAL LINKS
+        ========================= */
+        tr:nth-child(3) td:last-child {
+            width: 30%;
+            background: #F7F8F1;
+            border-left: 1px solid #EDF0E5;
+            padding: 30px 23px;
+        }
+
+        h3 {
+            margin: 0 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--butter);
+            color: var(--matcha-dark);
+            font-size: 17px;
+        }
+
+        ol {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        ol li {
+            padding: 7px 0;
+            color: var(--matcha-dark);
+            font-size: 13px;
+        }
+
+        ol li::marker {
+            color: var(--matcha);
+            font-weight: 700;
+        }
+
+        ol a {
+            display: inline-block;
+            overflow-wrap: anywhere;
+            color: #565D49;
+            font-weight: 500;
+        }
+
+        ol a:hover {
+            color: var(--cherry);
+            transform: translateX(4px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        tr:last-child td {
+            padding: 20px 28px;
+            background: var(--cherry-dark);
+            border-top: 4px solid var(--butter);
+        }
+
+        tr:last-child p {
+            margin: 5px 0;
+            color: var(--white);
+            font-size: 12px;
+        }
+
+        tr:last-child p[align="right"] {
+            margin-top: 12px;
+        }
+
+        tr:last-child font[color="4CAF50"] {
+            color: var(--butter) !important;
+            letter-spacing: 0.4px;
+        }
+
+        /* =========================
+           INTERACTION & FOCUS
+        ========================= */
+        a:focus-visible {
+            outline: 3px solid var(--matcha);
+            outline-offset: 4px;
+            border-radius: 5px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+        @media (max-width: 700px) {
+            body {
+                padding: 18px 10px;
+            }
+
+            table {
+                border-radius: 14px;
+            }
+
+            td {
+                padding: 20px;
+            }
+
+            tr:first-child td {
+                padding: 30px 18px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            tr:first-child i {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            tr:nth-child(2) td {
+                padding: 12px 8px;
+            }
+
+            tr:nth-child(2) a {
+                margin: 3px 1px;
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            tr:nth-child(3) td:first-child,
+            tr:nth-child(3) td:last-child {
+                display: block;
+                width: 100%;
+                border-left: none;
+            }
+
+            tr:nth-child(3) td:first-child {
+                padding: 25px 20px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                border-top: 1px solid var(--border);
+                padding: 25px 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 13px;
+            }
+
+            tr:last-child td {
+                padding: 18px;
+            }
+        }
+
+        /* Hormati pengaturan pengurangan animasi */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 
 <body bgcolor="#F5F0E6">
@@ -16,6 +471,7 @@
             </font>
         </td>
     </tr>
+
     <!-- MENU 4 HYPERLINK -->
     <tr>
         <td colspan="2" align="center">
@@ -25,6 +481,7 @@
             <a href="kontak.html">Kontak</a>
         </td>
     </tr>
+
     <!-- ISI -->
     <tr>
         <td width="650">
@@ -33,9 +490,9 @@
                 <i>Senin, 28 September 2026</i>
             </p>
             <p>
-                Tim nasional sepak bola Indonesia adalah tim nasional yang mewakili Indonesia di ajang sepak bola 
+                Tim nasional sepak bola Indonesia adalah tim nasional yang mewakili Indonesia di ajang sepak bola
                 internasional senior pria. Mereka adalah tim Asia pertama yang berpartisipasi pada Piala Dunia FIFA
-                tahun 1938 saat masih bernama Hindia Belanda. Pada babak pertama, Tim nasional Hindia Belanda mencatat 
+                tahun 1938 saat masih bernama Hindia Belanda. Pada babak pertama, Tim nasional Hindia Belanda mencatat
                 kekalahan 6-0 dari Hungaria, dan menjadi satu-satunya penampilan di Piala Dunia FIFA. Dengan hanya satu
                 pertandingan yang dimainkan dan tanpa mencetak gol, Indonesia memegang rekor Piala Dunia sebagai tim
                 dengan jumlah pertandingan paling sedikit  dan salah satu tim dengan jumlah gol paling sedikit yang dicetak.
@@ -48,9 +505,11 @@
             </p>
             <p>
                 Jadwal Timnas Indonesia pada bulan September hingga Oktober 2026 di ajang FIFA ASEAN Cup 2026 mencakup pertandingan
-                fase grup berikut: 
+                fase grup berikut:
+            </p>
             <a href="selengkapnya2.html">Selanjutnya</a>
         </td>
+
         <!-- TAUTAN LINK -->
         <td valign="top">
             <h3>Tautan Eksternal</h3>
@@ -62,19 +521,21 @@
             </ol>
         </td>
     </tr>
-            <!-- FOOTER -->
-  <tr bgcolor="#183B4E">
-    <td colspan="2" align="center">
-        <font color="white">
-            <p>Website Ekonomi Indonesia</p>
-        </font>
-<p align="right">
+
+    <!-- FOOTER -->
+    <tr bgcolor="#183B4E">
+        <td colspan="2" align="center">
+            <font color="white">
+                <p>Website Ekonomi Indonesia</p>
+            </font>
+            <p align="right">
                 <font color="4CAF50" size="2">
                     &copy; 2026 Wali Ardhi
                 </font>
             </p>
-    </td>
-</tr>
+        </td>
+    </tr>
 </table>
-    </body>
-        </html>
+
+</body>
+</html>
