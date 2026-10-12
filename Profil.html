@@ -1,66 +1,526 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <title>Profil Website</title>
-        </head>
-    
-        <body bgcolor="F5F0E6">
-    
-            <table border="1" width="900" align="center">
-                <!-- HEADER -->
-    <tr>
-        <td colspan="2" align="center" bgcolor="183B4E">
-            <font color="white">
-            <h1>Website Ikhsan </h1>
-            <i>MY LIVE MY ADVENTURE</i>
-            </font>
-        </td>
-    </tr>
-                <!-- MENU 4 HYPERLINK -->
-<tr>
-        <td colspan="2" align="center">
-            <a href="index.html">Beranda</a> |
-            <a href="Profil.html">Profil</a> |
-            <a href="kegiatan.html">Kegiatan</a> |
-            <a href="kontak.html">Kontak</a>
-        </td>
-    </tr>
-<tr>
-            <!-- ISI -->
-    <td>
-        <h1>PROFIL PEMBUAT WEBSITE</h1>
-        <p align="right">
-        <p><b>NAMA:</b>Ikhsan Fathi Al Farizi</p>
-        <P><B>KELAS</B>XI DKV 2</P>
-        <P><B>JURUSAN</B>DESAIN KOMUNIKASI VISUAL</P>
-        <p>Perkenalkan Website Buatan Saya di sini tempat untuk saya berkreasi</p>
-    </td>
- <!-- TAUTAN LINK -->
- <td valign="top">
-            <h3>Tautan Eksternal</h3>
-            <ol>
-                <li><a href="https://www.mawan.net">Website Mawan</a></li>
-                <li><a href="https://github.com">Github</a></li>
-                <li><a href="https://wikipedia.org">Wikipedia</a></li>
-                <li><a href="https://www.w3schools.com">W3Schools</a></li>
-            </ol>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        </td>
-    </tr>
-                <!-- FOOOTER -->
-  <tr bgcolor="#183B4E">
-    <td colspan="2" align="center">
-        <font color="white">
-            <p>Website Timnas Indonesia</p>
-        </font>
-<p align="right">
-                <font color="4CAF50" size="2">
-                    &copy; 2026 Ikhsan Fathi Al Farizi
+    <title>Profil Website</title>
+
+    <style>
+        /* =========================
+           COLOR PALETTE
+        ========================= */
+        :root {
+            --cherry: #A8324A;
+            --cherry-dark: #792337;
+            --cherry-soft: #F8E6E9;
+
+            --butter: #F5D982;
+            --butter-light: #FFF5D6;
+
+            --matcha: #879B65;
+            --matcha-dark: #586B42;
+            --matcha-light: #E8EEDC;
+
+            --cream: #FAF7F0;
+            --white: #FFFFFF;
+            --text: #37352F;
+            --muted: #817C72;
+            --border: #E8E0D3;
+
+            --shadow: 0 12px 35px rgba(87, 58, 48, 0.08);
+        }
+
+        /* =========================
+           RESET & GLOBAL STYLE
+        ========================= */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 45px 20px;
+            background: var(--cream);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+
+            animation: pageEnter 0.8s ease both;
+        }
+
+        /* Background decoration */
+        body::before {
+            content: "";
+            position: fixed;
+            top: -120px;
+            right: -100px;
+            width: 320px;
+            height: 320px;
+            background: var(--butter);
+            opacity: 0.20;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            bottom: -130px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: var(--matcha);
+            opacity: 0.13;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* =========================
+           MAIN WEBSITE TABLE
+        ========================= */
+        table {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border: none;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+
+            animation: cardEnter 0.9s ease both;
+        }
+
+        td {
+            padding: 25px;
+            border: none;
+            vertical-align: top;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+        tr:first-child td {
+            padding: 38px 25px;
+            background: var(--cherry);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        tr:first-child td::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            right: -45px;
+            top: -90px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            box-shadow:
+                0 0 0 25px rgba(255, 255, 255, 0.04),
+                0 0 0 50px rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(30px, 5vw, 43px);
+            font-weight: 750;
+            letter-spacing: -1.5px;
+            line-height: 1.3;
+        }
+
+        tr:first-child i {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--butter);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            font-style: normal;
+        }
+
+        /* =========================
+           NAVIGATION MENU
+        ========================= */
+        tr:nth-child(2) td {
+            padding: 17px 15px;
+            background: var(--butter-light);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        a {
+            color: var(--cherry);
+            text-decoration: none;
+            font-weight: 600;
+            transition:
+                color 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        tr:nth-child(2) a {
+            display: inline-block;
+            padding: 7px 16px;
+            margin: 3px 4px;
+            border-radius: 9px;
+            font-size: 14px;
+        }
+
+        tr:nth-child(2) a:hover {
+            color: var(--white);
+            background: var(--cherry);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(168, 50, 74, 0.18);
+        }
+
+        tr:nth-child(2) a:active {
+            transform: scale(0.95);
+        }
+
+        /* =========================
+           PROFILE CONTENT
+        ========================= */
+        tr:nth-child(3) td:first-child {
+            width: 70%;
+            padding: 35px;
+        }
+
+        tr:nth-child(3) td:first-child h1 {
+            position: relative;
+            margin: 0 0 28px;
+            padding-left: 16px;
+            color: var(--cherry-dark);
+            font-size: clamp(23px, 3vw, 30px);
+            line-height: 1.5;
+            letter-spacing: -0.6px;
+        }
+
+        tr:nth-child(3) td:first-child h1::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            bottom: 5px;
+            left: 0;
+            width: 4px;
+            background: var(--matcha);
+            border-radius: 5px;
+        }
+
+        tr:nth-child(3) td:first-child p {
+            margin: 15px 0;
+            color: #555149;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        /* Profile details */
+        tr:nth-child(3) td:first-child p b {
+            display: inline-block;
+            min-width: 105px;
+            margin-right: 8px;
+            color: var(--cherry-dark);
+            font-size: 13px;
+            letter-spacing: 0.4px;
+        }
+
+        /* First profile detail */
+        tr:nth-child(3) td:first-child p:nth-of-type(1) {
+            padding: 13px 16px;
+            background: var(--cherry-soft);
+            border-left: 3px solid var(--cherry);
+            border-radius: 8px;
+        }
+
+        /* Second profile detail */
+        tr:nth-child(3) td:first-child p:nth-of-type(2) {
+            padding: 13px 16px;
+            background: var(--butter-light);
+            border-left: 3px solid var(--butter);
+            border-radius: 8px;
+        }
+
+        /* Third profile detail */
+        tr:nth-child(3) td:first-child p:nth-of-type(3) {
+            padding: 13px 16px;
+            background: var(--matcha-light);
+            border-left: 3px solid var(--matcha);
+            border-radius: 8px;
+        }
+
+        /* Introduction */
+        tr:nth-child(3) td:first-child p:last-child {
+            margin-top: 26px;
+            padding: 20px;
+            background: #FBF9F4;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-style: italic;
+        }
+
+        /* =========================
+           SIDEBAR / EXTERNAL LINKS
+        ========================= */
+        tr:nth-child(3) td:last-child {
+            width: 30%;
+            background: #F7F8F1;
+            border-left: 1px solid #EDF0E5;
+            padding: 30px 23px;
+        }
+
+        h3 {
+            margin: 0 0 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--butter);
+            color: var(--matcha-dark);
+            font-size: 17px;
+        }
+
+        ol {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        ol li {
+            padding: 7px 0;
+            color: var(--matcha-dark);
+            font-size: 13px;
+        }
+
+        ol li::marker {
+            color: var(--matcha);
+            font-weight: 700;
+        }
+
+        ol a {
+            display: inline-block;
+            overflow-wrap: anywhere;
+            color: #565D49;
+            font-weight: 500;
+        }
+
+        ol a:hover {
+            color: var(--cherry);
+            transform: translateX(4px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        tr:last-child td {
+            padding: 20px 28px;
+            background: var(--cherry-dark);
+            border-top: 4px solid var(--butter);
+        }
+
+        tr:last-child p {
+            margin: 5px 0;
+            color: var(--white);
+            font-size: 12px;
+        }
+
+        tr:last-child p[align="right"] {
+            margin-top: 12px;
+        }
+
+        tr:last-child font[color="4CAF50"] {
+            color: var(--butter) !important;
+            letter-spacing: 0.4px;
+        }
+
+        /* =========================
+           FOCUS & INTERACTION
+        ========================= */
+        a:focus-visible {
+            outline: 3px solid var(--matcha);
+            outline-offset: 4px;
+            border-radius: 5px;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+        @media (max-width: 700px) {
+            body {
+                padding: 18px 10px;
+            }
+
+            table {
+                border-radius: 14px;
+            }
+
+            tr:first-child td {
+                padding: 30px 18px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            tr:first-child i {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+
+            tr:nth-child(2) td {
+                padding: 12px 8px;
+            }
+
+            tr:nth-child(2) a {
+                margin: 3px 1px;
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            tr:nth-child(3) td:first-child,
+            tr:nth-child(3) td:last-child {
+                display: block;
+                width: 100%;
+                border-left: none;
+            }
+
+            tr:nth-child(3) td:first-child {
+                padding: 25px 20px;
+            }
+
+            tr:nth-child(3) td:last-child {
+                border-top: 1px solid var(--border);
+                padding: 25px 20px;
+            }
+
+            tr:nth-child(3) td:first-child h1 {
+                font-size: 23px;
+            }
+
+            tr:nth-child(3) td:first-child p {
+                font-size: 13px;
+            }
+
+            tr:nth-child(3) td:first-child p b {
+                min-width: 85px;
+            }
+
+            tr:last-child td {
+                padding: 18px;
+            }
+        }
+
+        /* Reduce motion accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+
+<body bgcolor="F5F0E6">
+
+    <table border="1" width="900" align="center">
+
+        <!-- HEADER -->
+        <tr>
+            <td colspan="2" align="center" bgcolor="183B4E">
+                <font color="white">
+                    <h1>Website Ikhsan </h1>
+                    <i>MY LIVE MY ADVENTURE</i>
                 </font>
-            </p>
-    </td>
-</tr>
-</table>
+            </td>
+        </tr>
+
+        <!-- MENU 4 HYPERLINK -->
+        <tr>
+            <td colspan="2" align="center">
+                <a href="index.html">Beranda</a> |
+                <a href="Profil.html">Profil</a> |
+                <a href="kegiatan.html">Kegiatan</a> |
+                <a href="kontak.html">Kontak</a>
+            </td>
+        </tr>
+
+        <!-- ISI -->
+        <tr>
+            <td>
+                <h1>PROFIL PEMBUAT WEBSITE</h1>
+
+                <p align="right">
+                <p><b>NAMA:</b>Ikhsan Fathi Al Farizi</p>
+                <P><B>KELAS</B>XI DKV 2</P>
+                <P><B>JURUSAN</B>DESAIN KOMUNIKASI VISUAL</P>
+                <p>Perkenalkan Website Buatan Saya di sini tempat untuk saya berkreasi</p>
+            </td>
+
+            <!-- TAUTAN LINK -->
+            <td valign="top">
+                <h3>Tautan Eksternal</h3>
+                <ol>
+                    <li><a href="https://www.mawan.net">Website Mawan</a></li>
+                    <li><a href="https://github.com">Github</a></li>
+                    <li><a href="https://wikipedia.org">Wikipedia</a></li>
+                    <li><a href="https://www.w3schools.com">W3Schools</a></li>
+                </ol>
+            </td>
+        </tr>
+
+        <!-- FOOTER -->
+        <tr bgcolor="#183B4E">
+            <td colspan="2" align="center">
+                <font color="white">
+                    <p>Website Timnas Indonesia</p>
+                </font>
+
+                <p align="right">
+                    <font color="4CAF50" size="2">
+                        &copy; 2026 Ikhsan Fathi Al Farizi
+                    </font>
+                </p>
+            </td>
+        </tr>
+
+    </table>
 
 </body>
 </html>
